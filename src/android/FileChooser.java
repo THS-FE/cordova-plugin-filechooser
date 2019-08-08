@@ -35,8 +35,10 @@ public class FileChooser extends CordovaPlugin {
   @Override
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     String[] permissionArray ={"android.permission.READ_EXTERNAL_STORAGE","android.permission.WRITE_EXTERNAL_STORAGE"};
     cordova.requestPermissions(this, 55433,permissionArray);
+	}
   }
 
   @Override
